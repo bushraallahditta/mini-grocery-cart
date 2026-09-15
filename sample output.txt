@@ -1,0 +1,107 @@
+1. Show Products
+2. Add Product
+3. Remove Product
+4. View Cart
+5. Calculate Bill
+6. Update Quantity
+7. Exit
+enter your choice: 1
+        Available products:
+juice = 50 per box
+grapes = 50 per kg
+egg = 50 per dozen
+candy = 50 per pack
+banana = 70 per dozen
+milk = 80 per kg
+apple = 100 per kg
+bread = 100 per pack
+cream = 100 per box
+plum = 100 per kg
+noodles = 100 per pack
+oats = 100 per pack
+orange = 150 per kg
+coffee = 150 per pack
+jam = 150 per jar
+butter = 200 per box
+water bottle = 200 per bottle
+rice = 200 per kg
+canned beans = 200 per tin
+flour = 250 per kg
+canned fruit = 250 per tin
+chicken = 300 per kg
+chocolate = 300 per pack
+nuts = 300 per kg
+beef = 400 per kg
+mutton = 500 per kg
+
+1. Show Products
+2. Add Product
+3. Remove Product
+4. View Cart
+5. Calculate Bill
+6. Update Quantity
+7. Exit
+enter your choice: 2
+enter product name: jam
+enter product quantity: 4
+product added to cart
+
+1. Show Products
+2. Add Product
+3. Remove Product
+4. View Cart
+5. Calculate Bill
+6. Update Quantity
+7. Exit
+enter your choice: 2
+enter product name: beef
+enter product quantity: 2
+product added to cart
+
+1. Show Products
+2. Add Product
+3. Remove Product
+4. View Cart
+5. Calculate Bill
+6. Update Quantity
+7. Exit
+enter your choice: 2
+enter product name: apple
+enter product quantity: 4
+product added to cart
+
+1. Show Products
+2. Add Product
+3. Remove Product
+4. View Cart
+5. Calculate Bill
+6. Update Quantity
+7. Exit
+enter your choice: 4
+products added to cart:
+jam = 4
+beef = 2
+apple = 4
+
+1. Show Products
+2. Add Product
+3. Remove Product
+4. View Cart
+5. Calculate Bill
+6. Update Quantity
+7. Exit
+enter your choice: 5
+bill before discount: 1800
+discount amount 90.0
+total price: 1710.0 rs
+
+1. Show Products
+2. Add Product
+3. Remove Product
+4. View Cart
+5. Calculate Bill
+6. Update Quantity
+7. Exit
+enter your choice: 7
+Thank you
+Have a best day
