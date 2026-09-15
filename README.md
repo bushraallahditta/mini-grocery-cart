@@ -1,169 +1,146 @@
-# mini-grocery-cart
+# 🛒 Grocery Store Management System
 
-products={
-    "apple":(100,"kg"),
-    "banana":(70,"dozen"),
-    "orange":(150,"kg"),
-   "bread":(100,"pack"),
-   "juice":(50,"box"),
-    "milk":(80,"kg"),
-    "butter":(200,"box"),
-    "cream":(100,"box"),
-    "grapes":(50,"kg"),
-    "plum":(100,"kg"),
-    "egg":(50,"dozen"),
-    "coffee":(150,"pack"),
-    "flour":(250,"kg"),
-    "chicken":(300,"kg"),
-    "beef":(400,"kg"),
-    "mutton":(500,"kg"),
-    "water bottle":(200,"bottle"),
-    "noodles":(100,"pack"),
-    "rice":(200,"kg"),
-    "oats":(100,"pack"),
-    "canned beans": (200,"tin"),
-    "canned fruit":(250,"tin"),
-    "chocolate":(300,"pack"),
-    "candy":(50,"pack"),
-    "jam":(150,"jar"),
-    "nuts":(300,"kg")
-    }
-quantity={
-    "apple":50,
-    "banana":10,
-    "orange":70,
-   "bread":10,
-   "juice":50,
-    "milk":30,
-    "butter":20,
-    "cream":10,
-    "grapes":50,
-    "plum":10,
-    "egg":50,
-    "coffee":20,
-    "flour":25,
-    "chicken":20,
-    "beef":10,
-    "mutton":15,
-    "water bottle":20,
-    "noodles":30,
-    "rice":20,
-    "oats":10,
-    "canned beans": 20,
-    "canned fruit":25,
-    "chocolate":30,
-    "candy":50,
-    "jam":15,
-    "nuts":30
-    }
-cart={}
-def showproduct():
-    print("        Available products:")
+A simple ** mini grocery cart built in Python**.
+This project allows users to view available products, add products to a cart, update quantities, remove products, and calculate the final bill with discounts.
 
-    sorted_products = sorted(
-        products.items(),
-        key=lambda x: x[1][0]
-    )
-    for product,details in sorted_products:
-        price,unit=details
-        print(product,"=",price,"per",unit)
+## 📌 Project Overview
 
-def showcart():
-    print("products added to cart:")
+This project is designed as a beginner-level Python project to practice important programming concepts such as **dictionaries, tuples, functions, loops, conditional statements, lambda functions, and sorting**.
 
-    for name,qty in cart.items():
-        print(name, "=", qty)
+The system also includes a simple **stock management system** that checks whether the requested quantity is available before adding or updating a product in the cart.
 
-def deleteproduct():
-   name=input("enter product name to remove:")
-   if name in cart:
-       del cart[name]
-   else:
-       print("product not found in cart")
+## ✨ Features
 
-def total():
-    sumamount=0
-    for name,qty in cart.items():
-     price=products[name][0]
-     sumamount=sumamount+qty*price
+* 🛍️ Display available grocery products
+* ➕ Add products to the shopping cart
+* 🗑️ Remove products from the cart
+* 🛒 View cart items
+* 🔄 Update product quantities
+* 📦 Check available product stock
+* 💰 Calculate the total bill
+* 🎁 Apply discounts based on the bill amount
+* 🔢 Display products sorted by price
+* 🚪 Exit the program
 
-    if sumamount >= 3000:
-        discount = sumamount * 0.20
+## 🧠 Python Concepts Used
 
-    elif sumamount >= 2000:
-        discount = sumamount * 0.10
+This project uses the following Python concepts:
 
-    elif sumamount >= 1000:
-        discount = sumamount * 0.05
+* Variables
+* Dictionaries
+* Tuples
+* Functions
+* `for` loops
+* `while` loops
+* `if-elif-else`
+* Operators
+* Dictionary `.items()`
+* Dictionary `.update()`
+* `del` keyword
+* `sorted()` function
+* Lambda functions
+* User input
+* Basic calculations
 
-    else:
-        discount = 0
-    final_price = sumamount - discount
-    print("bill before discount:",sumamount)
-    print("discount amount",discount)
-    print("total price:",final_price,"rs")
-    return sumamount
+## 📂 Data Structures
 
-print("enter 0 when your are done and 1 to continue.")
-while True:
-    print()
-    print("1. Show Products")
-    print("2. Add Product")
-    print("3. Remove Product")
-    print("4. View Cart")
-    print("5. Calculate Bill")
-    print("6. Update Quantity")
-    print("7. Exit")
+### Products Dictionary
 
-    choice = int(input("enter your choice: "))
+Each product stores its **price and unit** using a tuple.
 
-    if choice == 1:
-        showproduct()
+Example:
 
-    elif choice == 2:
-        name = input("enter product name: ")
-        qty = int(input("enter product quantity: "))
+```python
+"apple": (100, "kg")
+```
 
-        if name in products:
-            if qty <= quantity[name]:
-                cart[name] = qty
-                print("product added to cart")
-            else:
-                print("product not available in this quantity")
-        else:
-            print("product not exist")
+Here:
 
-    elif choice == 3:
-        deleteproduct()
+* `apple` → Product name
+* `100` → Price
+* `kg` → Unit
 
-    elif choice == 4:
-        showcart()
+### Quantity Dictionary
 
-    elif choice == 5:
-        total()
+The `quantity` dictionary stores the available stock for each product.
 
-    elif choice == 6:
-        name = input("enter product name: ")
-        qty = int(input("enter new quantity: "))
+Example:
 
-        if name in cart:
-            if qty <= quantity[name]:
-                cart.update({name: qty})
-                print("quantity updated")
-            else:
-                print("not enough stock")
-        else:
-            print("product not in cart")
+```python
+"apple": 50
+```
 
-    elif choice == 7:
-        print("Thank you")
-        print("Have a best day")
-        break
+This means 50 kg of apples are available.
 
-    else:
-        print("Invalid choice")
+### Cart Dictionary
 
+The `cart` dictionary stores the products selected by the customer and their quantities.
 
+Example:
 
+```python
+cart = {
+    "apple": 2,
+    "bread": 1
+}
+```
 
+## 💸 Discount System
 
+The program automatically applies a discount according to the total bill:
+
+| Bill Amount       | Discount |
+| ----------------- | -------: |
+| Below Rs. 1000    |       0% |
+| Rs. 1000 or above |       5% |
+| Rs. 2000 or above |      10% |
+| Rs. 3000 or above |      20% |
+
+## 🔄 How the Program Works
+
+1. The program displays a menu.
+2. The user selects an option.
+3. The user can view available products.
+4. Products can be added to the cart.
+5. The program checks product availability before adding it.
+6. Cart quantities can be updated or products can be removed.
+7. The user can view the cart.
+8. The total bill is calculated.
+9. A discount is applied according to the bill amount.
+10. The user can exit the program.
+
+## ▶️ How to Run
+
+1. Clone or download this repository.
+2. Open the Python file.
+3. Run the program using Python.
+4. Select an option from the menu.
+5. Follow the instructions displayed on the screen.
+
+Example:
+
+```text
+1. Show Products
+2. Add Product
+3. Remove Product
+4. View Cart
+5. Calculate Bill
+6. Update Quantity
+7. Exit
+```
+
+## 🎯 Learning Purpose
+
+This project was created to strengthen my understanding of **Python fundamentals** and to apply multiple concepts together in a practical project.
+
+It helped me practice:
+
+> **Dictionaries + Tuples + Functions + Loops + Conditions + Lambda + Sorting**
+
+## 👩‍💻 Author
+
+**Bushra Ahmad**
+
+---
+
+⭐ If you find this project useful, feel free to explore the code and give it a star!
